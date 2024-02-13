@@ -3,11 +3,9 @@ const path = require("path");
 
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
-const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 const dbPath = path.join(__dirname, "goodreads.db");
 
@@ -20,7 +18,7 @@ const initializeDBAndServer = async () => {
       driver: sqlite3.Database,
     });
     app.listen(3001, () => {
-      console.log("Server Running at http://localhost:3000/");
+      console.log("Server Running at http://localhost:3001/");
     });
   } catch (e) {
     console.log(`DB Error: ${e.message}`);
